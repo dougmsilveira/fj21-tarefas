@@ -4,13 +4,16 @@ import java.util.Calendar;
 
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.sun.istack.internal.NotNull;
 
 public class Tarefa {
 	private Long id;
-	@NotNull @Size(min=5)
+	@NotNull @Size(min=5, message="A descricao deve ter no minimo 5 caracteres")
 	private String descricao;
 	private boolean finalizado;
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Calendar dataFinalizacao;
 
 	public Long getId() {
